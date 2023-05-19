@@ -1,0 +1,42 @@
+#   https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+
+AWS Provider
+Use the Amazon Web Services (AWS) provider to interact with the many resources supported by AWS. You must configure the provider with the proper credentials before you can use it.
+
+Use the navigation to the left to read about the available resources.
+
+To learn the basics of Terraform using this provider, follow the hands-on get started tutorials. Interact with AWS services, including Lambda, RDS, and IAM by following the AWS services tutorials.
+
+Example Usage
+Terraform 0.13 and later:
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Create a VPC
+resource "aws_vpc" "example" {
+  cidr_block = "10.0.0.0/16"
+}
+Terraform 0.12 and earlier:
+
+# Configure the AWS Provider
+provider "aws" {
+  version = "~> 4.0"
+  region  = "us-east-1"
+}
+
+# Create a VPC
+resource "aws_vpc" "example" {
+  cidr_block = "10.0.0.0/16"
+}
