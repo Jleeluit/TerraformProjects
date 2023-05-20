@@ -1,0 +1,27 @@
+Start Jenkins
+You can enable the Jenkins service to start at boot with the command:
+
+sudo systemctl enable jenkins
+You can start the Jenkins service with the command:
+
+sudo systemctl start jenkins
+You can check the status of the Jenkins service using the command:
+
+sudo systemctl status jenkins
+If everything has been set up correctly, you should see an output like this:
+
+Loaded: loaded (/lib/systemd/system/jenkins.service; enabled; vendor preset: enabled)
+Active: active (running) since Tue 2018-11-13 16:19:01 +03; 4min 57s ago
+If you have a firewall installed, you must add Jenkins as an exception. You must change YOURPORT in the script below to the port you want to use. Port 8080 is the most common.
+
+YOURPORT=8080
+PERM="--permanent"
+SERV="$PERM --service=jenkins"
+
+firewall-cmd $PERM --new-service=jenkins
+firewall-cmd $SERV --set-short="Jenkins ports"
+firewall-cmd $SERV --set-description="Jenkins port exceptions"
+firewall-cmd $SERV --add-port=$YOURPORT/tcp
+firewall-cmd $PERM --add-service=jenkins
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --reload
