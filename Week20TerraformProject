@@ -1,6 +1,6 @@
 /*
 Name: Week20 Project -How to create Jenkins server on an EC2 using Terraform 
-Description: AWS Infrastructure Buildout
+Description: AWS Infrastructure Buildout with Terraform
 Contributors: Jason Li
 */
 
