@@ -9,6 +9,7 @@ resource "aws_instance" "instance" {
   instance_type          = var.instance
   user_data              = var.ec2_user_data
   vpc_security_group_ids = [aws_security_group.security_group.id]
+  key_name               = "Project4EC2"
   tags = {
     Name = "JenkinsTerraformInstance2023"
   }
