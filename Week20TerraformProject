@@ -10,7 +10,7 @@ resource "aws_instance" "instance" {
   user_data              = var.ec2_user_data
   vpc_security_group_ids = [aws_security_group.security_group.id]
   tags = {
-    Name = "Jenkins Instance"
+    Name = "JenkinsTerraformInstance2023"
   }
 }
 resource "aws_security_group" "security_group" {
