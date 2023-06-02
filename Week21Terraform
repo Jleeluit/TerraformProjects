@@ -15,8 +15,8 @@ provider "aws" {
 }
 
 
-#Output.tf
 
+#Output.tf provided is a Terraform output that defines a public URL for an Application Load Balancer 
 output "alb_public_url" {
   description = "Public URL for Application Load Balancer"
   value       = aws_lb.alb.dns_name
