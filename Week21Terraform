@@ -1,5 +1,20 @@
 
 
+#provider.tf
+#Terraform to use the AWS provider version 4.0 or greater and create resources in the us-east-1 region.
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+provider "aws" {
+  region = "us-east-1"
+}
+
+
 #Output.tf
 
 output "alb_public_url" {
